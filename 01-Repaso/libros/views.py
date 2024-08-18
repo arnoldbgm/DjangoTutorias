@@ -6,29 +6,44 @@ from .serializers import GeneroSerializer
 
 # El nombre de la clase no importa
 # Lo importante es la herencia  ' ( APIView ) '
-class GeneroListCreate(APIView):
-   def get(self, request):
-      # SELECT * FROM generos;
-      # Para usar LA ORM
-      # 1. Siempre va primero el Modelo
-      # 2. objects
-      # 3. El metodo que quiero ejectuar
-      generos = GeneroModel.objects.all()
-      serializer = GeneroSerializer(generos, many=True)
-      return Response(serializer.data)
 
-   def post(self,request):
-      #
-      # {
-      #    "nombre": "Novela"
-      # }
-      #
-      serializer = GeneroSerializer(data=request.data)
-      if serializer.is_valid():
-         # GeneroModel.objects.create(nombre="Novela", descripcion="asda", ...)
-         serializer.save()
-         return Response(serializer.data)
-      return Response(serializer.errors)
-   
+
+class GeneroListCreate(APIView):
+    def get(self, request):
+        # SELECT * FROM generos;
+        # Para usar LA ORM
+        # 1. Siempre va primero el Modelo
+        # 2. objects
+        # 3. El metodo que quiero ejectuar
+        generos = GeneroModel.objects.all()
+        serializer = GeneroSerializer(generos, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        #
+        # {
+        #    "nombre": "Novela"
+        # }
+        #
+        serializer = GeneroSerializer(data=request.data)
+        if serializer.is_valid():
+            # GeneroModel.objects.create(nombre="Novela", descripcion="asda", ...)
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
+
 class GeneroPutDelete(APIView):
-   pass
+    def put(self, request, pk):
+        genero = GeneroModel.objects.get(pk=pk)
+        serializer = GeneroSerializer(genero, data= request.data)
+        if serializer.is_valid():
+            serializer.saver()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
+    def delete(self, requesst, pk):
+        genero = GeneroModel.objects.get(pk=pk)
+        genero.delete()
+        return Response({"msg": 
+                         "Eliminacion Exitosa"})
