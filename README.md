@@ -67,7 +67,7 @@ Django REST Framework es un potente kit de herramientas para construir APIs web.
    ]
    ```
 
-### 5. **Instalar Jazzmin**
+### 5. **Instalar Jazzmin (OPCIONAL)**
 
 Jazzmin es un paquete que mejora la interfaz de administración de Django con un diseño moderno.
 
@@ -138,7 +138,3 @@ Cuando hayas terminado de trabajar, puedes desactivar el entorno virtual con el 
 ```bash
 deactivate
 ```
-
-### Resumen
-
-Siguiendo estos pasos, habrás configurado un proyecto Django con un entorno virtual, instalado Django, Django REST Framework, y Jazzmin. ¡Ya estarás listo para comenzar a desarrollar tu aplicación web!
