@@ -21,15 +21,6 @@ class UserSerializer(serializers.ModelSerializer):
    # Los serializer tienen los metodos CREATE - VALIDATE
    # def validate -> Validaciones de la data
    # def create  -> Lo que se va insertar en la b
-
-   # pero aqui entra la data ya validada
-   # validated_data = {
-   # usuername: arnold
-   # password: 123456
-   # emial : a@a.com
-   # first_name: arnold
-   # last_name: gallegos
-   # }
    def create(self, validated_data):
       user = User.objects.create(
          username = validated_data['username'],

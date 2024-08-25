@@ -7,7 +7,7 @@ const NotFoundPage = () => {
          404
        </h1>
        <h2>
-          Pagina no encontrada, lo siento hermanito
+          Pagina no encontrada, lo siento hermanito, pero encontraste un gatitio uwu
        </h2>
        <img src={imageUrl} alt="Cat" className="mt-4 rounded-xl" />
      </div>
