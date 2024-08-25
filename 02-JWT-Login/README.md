@@ -81,3 +81,14 @@ This password is entirely numeric.
 Bypass password validation and create user anyway? [y/N]: y
 Superuser created successfully.
 ```
+
+15. Crearemos una aplicacion y la llamaremos en nuestro settings
+```py
+python manage.py startapp usuarios
+---------------
+INSTALLED_APPS = [
+    ...
+    'usuarios'
+] 
+```
+La segunda parte esta https://github.com/arnoldbgm/DjangoTutorias/tree/main/02-JWT-Login/backend
